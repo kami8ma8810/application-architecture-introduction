@@ -1,0 +1,30 @@
+// Prismaスキーマファイル
+// このファイルではデータベースの設定とテーブル構造を定義します
+// 詳細は https://pris.ly/d/prisma-schema を参照してください
+
+// クエリの高速化やサーバーレス/エッジ関数でのスケーリングを検討している場合
+// Prisma Accelerateの使用を検討してください: https://pris.ly/cli/accelerate-init
+
+// Prisma Clientの設定
+// データベース操作のためのクライアントを生成します
+generator client {
+  provider = "prisma-client-js"
+}
+
+// データベース接続の設定
+// SQLiteを使用し、データベースファイルは./web.dbに保存されます
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 書籍を表すモデル
+// 図書館システムで管理する本の情報を保持します
+model Book {
+  id String @id @default(uuid())
+  title String
+  isAvailable Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
