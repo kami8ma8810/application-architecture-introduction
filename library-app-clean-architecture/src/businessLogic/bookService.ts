@@ -8,7 +8,7 @@ import { BookServiceInterface } from "./bookServiceInterface";
 export class BookService implements BookServiceInterface {
 
   // インターフェースを利用することで外部からリポジトリを注入できるようにする
-  constructor(private readonly bookRepository: BookRepositoryInterface) {}
+  constructor(private readonly bookRepository: BookRepositoryInterface) { }
 
   async add(title: string): Promise<Book> {
     return await this.bookRepository.create(title);
