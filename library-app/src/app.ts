@@ -1,11 +1,15 @@
 import express from 'express';
 import { BookController } from './presentation/bookController';
+import { PrismaBookRepository } from './dataAccess/prismaBookRepository';
+import { BookService } from './businessLogic/bookService';
 
 const app = express();
 
 app.use(express.json());
 
-const bookController = new BookController();
+const bookRepository = new PrismaBookRepository();
+const bookService = new BookService(bookRepository);
+const bookController = new BookController(bookService);
 
 const PORT = process.env.PORT || 3030;
 
