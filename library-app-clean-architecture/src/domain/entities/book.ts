@@ -28,4 +28,21 @@ export class Book {
   get updatedAt(): Date {
     return this._updatedAt;
   }
+
+  // set などではなく、直感的にわかりやすい変数名にする
+  // 貸出
+  loan(): void {
+    if(!this._isAvailable) {
+      throw new Error('この本は既に貸し出しされています');
+    }
+    this._isAvailable = false;
+  }
+
+  // 返却
+  return(): void {
+    if(this._isAvailable) {
+      throw new Error('この本は既に返却されています');
+    }
+    this._isAvailable = true;
+  }
 }
