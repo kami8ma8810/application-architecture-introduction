@@ -1,11 +1,11 @@
 import { AddBookRequestDto } from "@/application/dtos/book/addBookRequestDto";
 import { AddBookResponseDto } from "@/application/dtos/book/addBookResponseDto";
-import { AddBookUsecaseInterface } from "./addBookUsecaseInterface";
+import { AddBookUseCaseInterface } from "./addBookUseCaseInterface";
 import { BookRepositoryInterface } from "@/domain/repositories/bookRepositoryInterface";
 import { IdGeneratorInterface } from "@/domain/utils/idGeneratorInterface";
 import { Book } from "@/domain/entities/book";
 
-export class AddBookUsecase implements AddBookUsecaseInterface {
+export class AddBookUseCase implements AddBookUseCaseInterface {
   constructor(
     private readonly bookRepository: BookRepositoryInterface,
     private readonly idGenerator: IdGeneratorInterface,
