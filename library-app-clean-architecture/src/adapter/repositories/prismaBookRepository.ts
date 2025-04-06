@@ -33,9 +33,7 @@ export class PrismaBookRepository implements BookRepositoryInterface {
       where: { id },
     });
 
-    if (!foundBook) {
-      return null;
-    }
+    if (!foundBook) return null;
 
     return new Book(
       foundBook.id,
