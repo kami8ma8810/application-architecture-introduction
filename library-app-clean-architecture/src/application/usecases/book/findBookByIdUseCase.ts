@@ -11,9 +11,7 @@ export class FindBookByIdUseCase implements FindBookByIdUseCaseInterface {
   async execute(requestDto: FindBookByIdRequestDto): Promise<FindBookByIdResponseDto | null> {
     const foundBook = await this.bookRepository.findById(requestDto.id);
 
-    if (!foundBook) {
-      return null;
-    }
+    if (!foundBook) return null;
 
     return {
       id: foundBook.id,

@@ -2,5 +2,5 @@ import { FindBookByIdRequestDto } from "@/application/dtos/book/findBookByIdRequ
 import { FindBookByIdResponseDto } from "@/application/dtos/book/findBookByIdResponseDto";
 
 export interface FindBookByIdUseCaseInterface {
-  execute(request: FindBookByIdRequestDto): Promise<FindBookByIdResponseDto | null>;
+  execute(requestDto: FindBookByIdRequestDto): Promise<FindBookByIdResponseDto | null>;
 }
